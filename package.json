@@ -1,0 +1,29 @@
+{
+	"name": "graphql-apollo-server-template",
+	"version": "1.0.0",
+	"description": "Project structure of a graphql server using Apollo-server",
+	"scripts": {
+		"dev": "nodemon -e js,graphql,ts -x ts-node src/setup/index.ts",
+		"start": "node src/index.js"
+	},
+	"dependencies": {
+		"@types/jsonwebtoken": "^8.3.5",
+		"apollo-server": "^2.9.6",
+		"bcryptjs": "^2.4.3",
+		"dotenv": "^8.2.0",
+		"graphql": "^14.5.8",
+		"jsonwebtoken": "^8.5.1",
+		"merge-graphql-schemas": "^1.7.0",
+		"mongoose": "^5.7.5",
+		"validator": "^11.1.0"
+	},
+	"devDependencies": {
+		"@types/bcryptjs": "2.4.2",
+		"@types/mongoose": "^5.5.22",
+		"@types/node": "10.14.22",
+		"nodemon": "^1.19.4",
+		"ts-node": "7.0.1",
+		"tslint": "^5.20.0",
+		"typescript": "3.2.2"
+	}
+}
