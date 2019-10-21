@@ -16,12 +16,7 @@ export default {
 	},
 	Mutation: {
 		createUser: async (obj, args, ctx, info) => {
-			try {
-				return ctx.models.User.createUser(args.input)
-			} catch (error) {
-				console.log(error)
-				throw new ApolloError('Server error', '500')
-			}
+			return ctx.models.User.createUser(args.input)
 		},
 		login: async (obj, args, ctx, info) => {
 			// TODO

@@ -1,4 +1,5 @@
 import User from '../db/models/User.model'
+import { UserInputError } from 'apollo-server'
 
 interface UserData {
 	name: string
@@ -14,12 +15,16 @@ export default {
 		return await User.findOne({ _id: id })
 	},
 	createUser: async (input: UserData) => {
-		const user = new User(input)
-		const token = await user.generateAuthToken()
-		await user.save()
-		return {
-			user,
-			token
+		try {
+			const user = new User(input)
+			const token = await user.generateAuthToken()
+			await user.save()
+			return {
+				user,
+				token
+			}
+		} catch (error) {
+			throw new UserInputError(error.message)
 		}
 	}
 }
