@@ -1,28 +1,26 @@
 import { getUserId } from '../../util'
-import User from '../../models/User.model'
+import { ApolloError } from 'apollo-server'
 
 export default {
 	Query: {
 		users: (obj, args, ctx, info) => {
-			// const userId = getUserId({ request: ctx.request, authRequired: true })
 			const users = ctx.models.User.getAll()
 
 			return users
 		},
-		user: (obj, args, ctx, info) => {
-			// const userId = getUserId({ request: ctx.request, authRequired: true })
-			const user = ctx.models.User.getUserById(args.id)
+		profile: (obj, args, ctx, info) => {
+			const userId = getUserId({ request: ctx.request, authRequired: true })
+			const user = ctx.models.User.getUserById(userId)
 			return user
 		}
 	},
 	Mutation: {
 		createUser: async (obj, args, ctx, info) => {
-			const user = new User(...args.input)
-			const token = await user.generateAuthToken()
-			await user.save()
-			return {
-				user,
-				token
+			try {
+				return ctx.models.User.createUser(args.input)
+			} catch (error) {
+				console.log(error)
+				throw new ApolloError('Server error', '500')
 			}
 		},
 		login: async (obj, args, ctx, info) => {

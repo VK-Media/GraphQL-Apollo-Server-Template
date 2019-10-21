@@ -1,7 +1,6 @@
-import * as mongoose from 'mongoose'
 import * as bcrypt from 'bcryptjs'
 import * as jwt from 'jsonwebtoken'
-import validator from 'validator'
+import * as mongoose from 'mongoose'
 
 interface IUserModel extends mongoose.Document {
 	name: string
@@ -25,11 +24,6 @@ const UserSchema = new mongoose.Schema(
 			required: true,
 			trim: true,
 			lowercase: true
-			// validate(value) {
-			// 	if (!validator.isEmail(value)) {
-			// 		throw new Error('Email is invalid')
-			// 	}
-			// }
 		},
 		password: {
 			type: String,
@@ -50,6 +44,12 @@ const UserSchema = new mongoose.Schema(
 		timestamps: true
 	}
 )
+
+// UserSchema.path('email').validate(function(email) {
+// 	if (!validator.isEmail(email)) {
+// 		throw new Error('Email is invalid')
+// 	}
+// }, 'Email is invalid')
 
 UserSchema.methods.toJSON = function() {
 	const user = this

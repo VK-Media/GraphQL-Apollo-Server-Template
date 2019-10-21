@@ -1,25 +1,27 @@
-import jwt from 'jsonwebtoken'
+import * as jwt from 'jsonwebtoken'
+import { AuthenticationError } from 'apollo-server'
 
 interface params {
-	request: any
+	request: {
+		headers: {
+			authorization
+		}
+	}
 	authRequired: Boolean
 }
 
 export function getUserId(params: params) {
-	const Authorization = params.request.headers.Authorization
+	const authorization = params.request.headers.authorization
 
-	if (Authorization) {
-		const token = Authorization.replace('Bearer ', '')
-		const { userId } = jwt.verify(token, process.env.JWT_SECRET)
-		return userId
+	if (authorization) {
+		const token = authorization.replace('Bearer ', '')
+		const decoded = jwt.verify(token, process.env.JWT_SECRET) as {
+			_id: string
+			iat: number
+		}
+		return decoded._id
 	}
 
-	if (params.authRequired) throw new AuthError()
+	if (params.authRequired) throw new AuthenticationError('Please Authenticate')
 	else return null
-}
-
-export class AuthError extends Error {
-	constructor() {
-		super('Not Authorized')
-	}
 }

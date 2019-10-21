@@ -3,11 +3,10 @@
 	"version": "1.0.0",
 	"description": "Project structure of a graphql server using Apollo-server",
 	"scripts": {
-		"dev": "nodemon -e js,graphql,ts -x ts-node src/setup/index.ts",
-		"start": "node src/index.js"
+		"dev": "nodemon",
+		"start": "ts-node -r dotenv/config src/server_setup/index.ts"
 	},
 	"dependencies": {
-		"@types/jsonwebtoken": "^8.3.5",
 		"apollo-server": "^2.9.6",
 		"bcryptjs": "^2.4.3",
 		"dotenv": "^8.2.0",
@@ -19,11 +18,14 @@
 	},
 	"devDependencies": {
 		"@types/bcryptjs": "2.4.2",
+		"@types/jsonwebtoken": "^8.3.5",
 		"@types/mongoose": "^5.5.22",
 		"@types/node": "10.14.22",
 		"nodemon": "^1.19.4",
 		"ts-node": "7.0.1",
 		"tslint": "^5.20.0",
+		"tslint-config-prettier": "^1.18.0",
+		"tslint-plugin-prettier": "^2.0.1",
 		"typescript": "3.2.2"
 	}
 }
