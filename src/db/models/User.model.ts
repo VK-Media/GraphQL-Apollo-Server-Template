@@ -7,7 +7,6 @@ interface IUserModel extends mongoose.Document {
 	name: string
 	email: string
 	password: string
-	tokens: []
 	generateAuthToken: Function
 	findByCredentials: Function
 }
@@ -31,15 +30,7 @@ const UserSchema = new mongoose.Schema(
 			required: true,
 			minLength: 8,
 			trim: true
-		},
-		tokens: [
-			{
-				token: {
-					type: String,
-					required: true
-				}
-			}
-		]
+		}
 	},
 	{
 		timestamps: true
@@ -54,7 +45,6 @@ UserSchema.methods.toJSON = function() {
 	const user = this
 	const userObject = user.toObject()
 	delete userObject.password
-	delete userObject.tokens
 
 	return userObject
 }
@@ -62,9 +52,6 @@ UserSchema.methods.toJSON = function() {
 UserSchema.methods.generateAuthToken = async function() {
 	const user = this
 	const token = jwt.sign({ _id: user._id.toString() }, process.env.JWT_SECRET)
-
-	user.tokens = user.tokens.concat({ token })
-	await user.save()
 
 	return token
 }
