@@ -1,12 +1,15 @@
 import { getUserId } from '../../util'
-import { ApolloError } from 'apollo-server'
+//import { ApolloError } from 'apollo-server'
 
 export default {
 	Query: {
 		users: (obj, args, ctx, info) => {
 			const users = ctx.models.User.getAll()
-
 			return users
+		},
+		user: (obj, args, ctx, info) => {
+			const user = ctx.models.User.getUserById(args.id)
+			return user
 		},
 		profile: (obj, args, ctx, info) => {
 			const userId = getUserId({ request: ctx.request, authRequired: true })
