@@ -13,8 +13,6 @@ type User {
 	id: ID!
 	name: String!
 	email: String!
-	tokens: [Token!]!
-	posts: [Post!]!
 }
 
 type Token {
@@ -37,4 +35,3 @@ input LoginInput {
 	email: String!
 	password: String!
 }
-
