@@ -7,8 +7,8 @@ interface IUserModel extends mongoose.Document {
 	name: string
 	email: string
 	password: string
-	generateAuthToken: Function
-	findByCredentials: Function
+	generateAuthToken: () => string
+	findByCredentials: () => IUserModel
 }
 
 const UserSchema = new mongoose.Schema(
@@ -37,7 +37,7 @@ const UserSchema = new mongoose.Schema(
 	}
 )
 
-UserSchema.path('email').validate(function(email) {
+UserSchema.path('email').validate(email => {
 	return validator.isEmail(email)
 }, 'Email is invalid')
 
@@ -84,7 +84,7 @@ UserSchema.pre('save', async function(this: IUserModel, next) {
 })
 
 // Email uniqueness
-UserSchema.post('save', function(error, doc, next) {
+UserSchema.post('save', (error, doc, next) => {
 	if (error.name === 'MongoError' && error.code === 11000) {
 		next(new Error('Email must be unique'))
 	} else {
