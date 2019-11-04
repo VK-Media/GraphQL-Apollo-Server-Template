@@ -1,7 +1,7 @@
-import User from '../db/models/User.model'
 import { UserInputError } from 'apollo-server'
+import User from '../db/models/User.model'
 
-interface UserData {
+interface IUserData {
 	name: string
 	email: string
 	password: string
@@ -9,12 +9,12 @@ interface UserData {
 
 export default {
 	getAll: async () => {
-		return await User.find()
+		return User.find()
 	},
 	getUserById: async id => {
-		return await User.findOne({ _id: id })
+		return User.findOne({ _id: id })
 	},
-	createUser: async (input: UserData) => {
+	createUser: async (input: IUserData) => {
 		try {
 			const user = new User(input)
 			const token = await user.generateAuthToken()

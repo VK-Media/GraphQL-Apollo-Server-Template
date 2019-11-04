@@ -9,7 +9,8 @@
 		"object-literal-sort-keys": false,
 		"member-ordering": false,
 		"member-access": false,
-		"curly":false,
-		"no-this-assignment":false
+		"curly": false,
+		"no-this-assignment": false,
+		"no-console": false
 	}
 }

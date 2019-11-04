@@ -1,16 +1,16 @@
-import * as jwt from 'jsonwebtoken'
 import { AuthenticationError } from 'apollo-server'
+import * as jwt from 'jsonwebtoken'
 
-interface params {
+interface IParams {
 	request: {
 		headers: {
 			authorization
 		}
 	}
-	authRequired: Boolean
+	authRequired: boolean
 }
 
-export function getUserId(params: params) {
+export function getUserId(params: IParams) {
 	const authorization = params.request.headers.authorization
 
 	if (authorization) {

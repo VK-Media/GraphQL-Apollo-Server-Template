@@ -1,8 +1,8 @@
 import { ApolloServer } from 'apollo-server'
 import '../db/mongoose'
 import userDataMethods from '../model_data/User.data'
-import typeDefs from './typedefs'
 import resolvers from './resolvers'
+import typeDefs from './typedefs'
 
 const server = new ApolloServer({
 	typeDefs,

@@ -1,5 +1,4 @@
 import { getUserId } from '../../util'
-//import { ApolloError } from 'apollo-server'
 
 export default {
 	Query: {
