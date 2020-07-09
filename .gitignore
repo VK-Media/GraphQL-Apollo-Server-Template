@@ -1,6 +1,15 @@
+# Production files
 dist
+
+# Environment files
 .env
-package-lock.json
+
+# Packages
 node_modules
+
+# Misc
 .vscode
+.idea
+
+# Log files
 *.log
