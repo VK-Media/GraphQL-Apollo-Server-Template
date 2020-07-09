@@ -12,23 +12,24 @@ class Server {
         this.setupApolloServer()
     }
 
-    private setupMongoose(){
-        mongoose.connect(process.env.MONGODB_URL, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-            useCreateIndex: true,
-            useFindAndModify: false
-        }).then(() => {
-            console.log(`💾 Connected to database`)
-        })
-
+    private setupMongoose() {
+        mongoose
+            .connect(process.env.MONGODB_URL, {
+                useNewUrlParser: true,
+                useUnifiedTopology: true,
+                useCreateIndex: true,
+                useFindAndModify: false
+            })
+            .then(() => {
+                console.log(`💾 Connected to database`)
+            })
     }
 
-    private setupApolloServer(){
+    private setupApolloServer() {
         const server = new ApolloServer({
             typeDefs,
             resolvers,
-            context: request => {
+            context: (request) => {
                 return {
                     models: {
                         User: userDataMethods
@@ -40,10 +41,9 @@ class Server {
             playground: this.isDevelopment
         })
 
-        server.listen()
-            .then(({ url }) => {
-                console.log(`🚀 Server ready at ${url}`)
-            })
+        server.listen().then(({ url }) => {
+            console.log(`🚀 Server ready at ${url}`)
+        })
     }
 }
 

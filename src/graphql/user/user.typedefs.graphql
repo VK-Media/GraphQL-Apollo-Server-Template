@@ -1,37 +1,37 @@
 type Query {
-	users: [User!]
-	user(id: ID!): User!
-	profile: User!
+    users: [User!]
+    user(id: ID!): User!
+    profile: User!
 }
 
 type Mutation {
-	createUser(input: CreateUserInput!): CreateUserPayload
-	login(input: LoginInput): Token
+    createUser(input: CreateUserInput!): CreateUserPayload
+    login(input: LoginInput): Token
 }
 
 type User {
-	id: ID!
-	name: String!
-	email: String!
+    id: ID!
+    name: String!
+    email: String!
 }
 
 type Token {
-	id: ID!
-	token: String!
+    id: ID!
+    token: String!
 }
 
 input CreateUserInput {
-	name: String!
-	email: String!
-	password: String!
+    name: String!
+    email: String!
+    password: String!
 }
 
 type CreateUserPayload {
-	user: User
-	token: String
+    user: User
+    token: String
 }
 
 input LoginInput {
-	email: String!
-	password: String!
+    email: String!
+    password: String!
 }

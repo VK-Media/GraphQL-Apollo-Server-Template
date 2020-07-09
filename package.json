@@ -1,30 +1,31 @@
 {
-	"name": "graphql-apollo-server-template",
-	"version": "1.0.0",
-	"description": "Project structure of a graphql server using Apollo-server",
-	"scripts": {
-		"dev": "nodemon",
-		"start": "ts-node -r dotenv/config src/server_setup/index.ts"
-	},
-	"dependencies": {
-		"@graphql-tools/load-files": "^6.0.12",
-		"@graphql-tools/merge": "^6.0.12",
-		"apollo-server": "^2.9.6",
-		"bcryptjs": "^2.4.3",
-		"dotenv": "^8.2.0",
-		"graphql": "^15.3.0",
-		"jsonwebtoken": "^8.5.1",
-		"mongoose": "^5.7.5",
-		"validator": "^13.1.1"
-	},
-	"devDependencies": {
-		"@types/bcryptjs": "^2.4.2",
-		"@types/jsonwebtoken": "^8.3.5",
-		"@types/mongoose": "^5.5.22",
-		"@types/validator": "^13.1.0",
-		"nodemon": "^2.0.4",
-		"prettier": "^2.0.5",
-		"ts-node": "^8.10.2",
-		"typescript": "^3.9.6"
-	}
+    "name": "graphql-apollo-server-template",
+    "version": "1.0.0",
+    "description": "Project structure of a graphql server using Apollo-server",
+    "scripts": {
+        "preversion": "prettier --write .",
+        "dev": "nodemon",
+        "start": "ts-node -r dotenv/config src/server_setup/index.ts"
+    },
+    "dependencies": {
+        "@graphql-tools/load-files": "^6.0.12",
+        "@graphql-tools/merge": "^6.0.12",
+        "apollo-server": "^2.9.6",
+        "bcryptjs": "^2.4.3",
+        "dotenv": "^8.2.0",
+        "graphql": "^15.3.0",
+        "jsonwebtoken": "^8.5.1",
+        "mongoose": "^5.7.5",
+        "validator": "^13.1.1"
+    },
+    "devDependencies": {
+        "@types/bcryptjs": "^2.4.2",
+        "@types/jsonwebtoken": "^8.3.5",
+        "@types/mongoose": "^5.5.22",
+        "@types/validator": "^13.1.0",
+        "nodemon": "^2.0.4",
+        "prettier": "^2.0.5",
+        "ts-node": "^8.10.2",
+        "typescript": "^3.9.6"
+    }
 }
