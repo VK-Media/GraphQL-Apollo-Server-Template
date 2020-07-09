@@ -1,5 +1,5 @@
 import { UserInputError } from 'apollo-server'
-import User from '../db/models/User.model'
+import User from '../models/User.model'
 
 interface IUserData {
 	name: string

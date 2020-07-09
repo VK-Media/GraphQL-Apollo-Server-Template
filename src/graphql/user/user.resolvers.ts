@@ -1,4 +1,4 @@
-import { getUserId } from '../../util'
+import { getUserId } from '../../utils/user.utils'
 
 export default {
 	Query: {

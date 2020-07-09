@@ -1,5 +1,5 @@
 {
 	"watch": ["src"],
 	"ext": "ts js json graphql",
-	"exec": "ts-node -r dotenv/config src/server_setup/index.ts "
+	"exec": "ts-node -r dotenv/config src/server.ts "
 }
