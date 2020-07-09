@@ -1,8 +1,7 @@
 import { ApolloServer } from 'apollo-server'
-import userDataMethods from './data/user.data'
-import resolvers from './graphql/resolvers'
-import typeDefs from './graphql/typeDefs'
 import mongoose from 'mongoose'
+import userDataMethods from './data/user.data'
+import { resolvers, typeDefs } from './graphql'
 
 class Server {
     private readonly isDevelopment = process.env.NODE_ENV !== 'production'

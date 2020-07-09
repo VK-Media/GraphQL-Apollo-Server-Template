@@ -5,6 +5,7 @@
     "scripts": {
         "preversion": "prettier --write .",
         "dev": "nodemon",
+        "build": "tsc",
         "start": "ts-node -r dotenv/config src/server_setup/index.ts"
     },
     "dependencies": {
