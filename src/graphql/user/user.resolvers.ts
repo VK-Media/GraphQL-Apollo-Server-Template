@@ -1,16 +1,16 @@
 import UserController from '../../controllers/User.controller'
-import { getUserId } from '../../utils/user.utils'
+import { getUserIdFromToken } from '../../utils/user.utils'
 
 export default {
     Query: {
-        users: (obj, args, ctx, info) => {
+        users: () => {
             return UserController.find()
         },
-        user: (obj, args, ctx, info) => {
+        user: (obj, args) => {
             return UserController.findOne(args.id)
         },
-        profile: (obj, args, ctx, info) => {
-            const userId = getUserId({
+        profile: (obj, args, ctx) => {
+            const userId = getUserIdFromToken({
                 request: ctx.request,
                 authRequired: true
             })
@@ -19,11 +19,8 @@ export default {
         }
     },
     Mutation: {
-        createUser: async (obj, args, ctx, info) => {
+        createUser: async (obj, args) => {
             return UserController.create(args.input)
-        },
-        login: async (obj, args, ctx, info) => {
-            // TODO
         }
     }
 }
