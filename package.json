@@ -7,27 +7,25 @@
 		"start": "ts-node -r dotenv/config src/server_setup/index.ts"
 	},
 	"dependencies": {
+		"@graphql-tools/load-files": "^6.0.12",
+		"@graphql-tools/merge": "^6.0.12",
 		"apollo-server": "^2.9.6",
 		"bcryptjs": "^2.4.3",
 		"dotenv": "^8.2.0",
-		"graphql": "^14.5.8",
+		"graphql": "^15.3.0",
 		"jsonwebtoken": "^8.5.1",
-		"merge-graphql-schemas": "^1.7.0",
 		"mongoose": "^5.7.5",
-		"validator": "^11.1.0"
+		"validator": "^13.1.1"
 	},
 	"devDependencies": {
-		"@types/bcryptjs": "2.4.2",
+		"@types/bcryptjs": "^2.4.2",
 		"@types/jsonwebtoken": "^8.3.5",
 		"@types/mongoose": "^5.5.22",
-		"@types/node": "10.14.22",
-		"@types/validator": "^10.11.3",
-		"nodemon": "^1.19.4",
-		"prettier": "^1.18.2",
-		"ts-node": "7.0.1",
-		"tslint": "^5.20.0",
-		"tslint-config-prettier": "^1.18.0",
-		"tslint-plugin-prettier": "^2.0.1",
-		"typescript": "3.2.2"
+		"@types/node": "^14.0.20",
+		"@types/validator": "^13.1.0",
+		"nodemon": "^2.0.4",
+		"prettier": "^2.0.5",
+		"ts-node": "^8.10.2",
+		"typescript": "^3.9.6"
 	}
 }

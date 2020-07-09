@@ -15,18 +15,14 @@
 
 ### Packages
 
-- Stand alone Apollo Server
-- Mongoose
-- TypeScript
-- Bcrypt
-- dotenv
-- Jsonwebtoken
-- Validator
-- Merge-graphql-schemas
-- Nodemon
-
-### Other
-
-- Prettier
-- TsLint
-- Nodemon Setup File
+- [Standalone Apollo Server](https://www.npmjs.com/package/apollo-server)
+- [Mongoose](https://www.npmjs.com/package/mongoose)
+- [TypeScript](https://www.npmjs.com/package/typescript)
+- [Bcrypt](https://www.npmjs.com/package/bcrypt)
+- [dotenv](https://www.npmjs.com/package/dotenv)
+- [JSON Web Token](https://www.npmjs.com/package/jsonwebtoken)
+- [Validator](https://www.npmjs.com/package/validator)
+- [GraphQL Tools Merge](https://www.npmjs.com/package/@graphql-tools/merge)
+- [GraphQL Tools Load Files](https://www.npmjs.com/package/@graphql-tools/load-files)
+- [Nodemon](https://www.npmjs.com/package/nodemon)
+- [Prettier](https://www.npmjs.com/package/prettier)
