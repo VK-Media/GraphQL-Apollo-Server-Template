@@ -11,8 +11,10 @@ class Server {
     }
 
     private setupMongoose() {
+        const url: string = <string>process.env.MONGODB_URL || ''
+
         mongoose
-            .connect(process.env.MONGODB_URL, {
+            .connect(url, {
                 useNewUrlParser: true,
                 useUnifiedTopology: true,
                 useCreateIndex: true,

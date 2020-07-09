@@ -3,8 +3,6 @@
     "version": "1.1.1",
     "description": "Project structure of a graphql server using Apollo-server",
     "scripts": {
-        "prettier:format": "prettier --write .",
-        "preversion": "npm run prettier:format",
         "dev": "nodemon",
         "build": "tsc",
         "start": "ts-node -r dotenv/config src/server_setup/index.ts"
@@ -25,9 +23,16 @@
         "@types/jsonwebtoken": "^8.3.5",
         "@types/mongoose": "^5.5.22",
         "@types/validator": "^13.1.0",
+        "husky": "^4.2.5",
         "nodemon": "^2.0.4",
         "prettier": "^2.0.5",
+        "pretty-quick": "^2.0.1",
         "ts-node": "^8.10.2",
         "typescript": "^3.9.6"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "pretty-quick --staged"
+        }
     }
 }
