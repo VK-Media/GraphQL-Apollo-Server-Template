@@ -1,7 +1,7 @@
 {
     "name": "graphql-apollo-server-template",
     "version": "1.1.1",
-    "description": "Project structure of a graphql server using Apollo-server",
+    "description": "Project structure of a GraphQL server using Apollo-server",
     "scripts": {
         "dev": "nodemon",
         "build": "tsc",
