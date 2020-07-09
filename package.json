@@ -1,6 +1,6 @@
 {
     "name": "graphql-apollo-server-template",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "Project structure of a graphql server using Apollo-server",
     "scripts": {
         "preversion": "prettier --write .",
