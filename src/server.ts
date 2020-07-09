@@ -1,6 +1,5 @@
 import { ApolloServer } from 'apollo-server'
 import mongoose from 'mongoose'
-import userDataMethods from './data/user.data'
 import { resolvers, typeDefs } from './graphql'
 
 class Server {
@@ -30,9 +29,6 @@ class Server {
             resolvers,
             context: (request) => {
                 return {
-                    models: {
-                        User: userDataMethods
-                    },
                     request: request.req
                 }
             },

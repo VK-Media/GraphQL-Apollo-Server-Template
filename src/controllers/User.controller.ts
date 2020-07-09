@@ -1,24 +1,23 @@
 import { UserInputError } from 'apollo-server'
 import User from '../models/User.model'
+import { IController } from '../types/general.types'
+import { IUserInput, IUserModel } from '../types/user.types'
 
-interface IUserData {
-    name: string
-    email: string
-    password: string
-}
-
-export default {
-    getAll: async () => {
+class UserController implements IController<IUserModel, IUserInput> {
+    public async find() {
         return User.find()
-    },
-    getUserById: async (id: any) => {
+    }
+
+    public async findOne(id: string) {
         return User.findOne({ _id: id })
-    },
-    createUser: async (input: IUserData) => {
+    }
+
+    public async create(input: IUserInput) {
         try {
             const user = new User(input)
             const token = await user.generateAuthToken()
             await user.save()
+
             return {
                 user,
                 token
@@ -28,3 +27,5 @@ export default {
         }
     }
 }
+
+export default new UserController()

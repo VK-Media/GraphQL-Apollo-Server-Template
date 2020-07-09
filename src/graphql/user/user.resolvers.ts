@@ -1,12 +1,13 @@
+import UserController from '../../controllers/User.controller'
 import { getUserId } from '../../utils/user.utils'
 
 export default {
     Query: {
         users: (obj, args, ctx, info) => {
-            return ctx.models.User.getAll()
+            return UserController.find()
         },
         user: (obj, args, ctx, info) => {
-            return ctx.models.User.getUserById(args.id)
+            return UserController.findOne(args.id)
         },
         profile: (obj, args, ctx, info) => {
             const userId = getUserId({
@@ -14,12 +15,12 @@ export default {
                 authRequired: true
             })
 
-            return ctx.models.User.getUserById(userId)
+            return UserController.findOne(userId)
         }
     },
     Mutation: {
         createUser: async (obj, args, ctx, info) => {
-            return ctx.models.User.createUser(args.input)
+            return UserController.create(args.input)
         },
         login: async (obj, args, ctx, info) => {
             // TODO

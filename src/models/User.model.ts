@@ -2,14 +2,7 @@ import * as bcrypt from 'bcryptjs'
 import * as jwt from 'jsonwebtoken'
 import * as mongoose from 'mongoose'
 import validator from 'validator'
-
-interface IUserModel extends mongoose.Document {
-    name: string
-    email: string
-    password: string
-    generateAuthToken: () => string
-    findByCredentials: () => IUserModel
-}
+import { IUserModel } from '../types/user.types'
 
 const UserSchema = new mongoose.Schema(
     {
