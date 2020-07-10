@@ -1,6 +1,6 @@
 {
     "name": "graphql-apollo-server-template",
-    "version": "1.1.1",
+    "version": "1.1.2",
     "description": "Project structure of a GraphQL server using Apollo-server",
     "scripts": {
         "dev": "nodemon"
