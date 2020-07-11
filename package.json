@@ -3,7 +3,9 @@
     "version": "1.1.2",
     "description": "Project structure of a GraphQL server using Apollo-server",
     "scripts": {
-        "dev": "nodemon"
+        "dev": "nodemon",
+        "build": "parcel build src/server.ts --log-level 1 --target node --no-cache",
+        "start": "node dist/server.js"
     },
     "dependencies": {
         "@graphql-tools/load-files": "^6.0.12",
@@ -23,6 +25,7 @@
         "@types/validator": "^13.1.0",
         "husky": "^4.2.5",
         "nodemon": "^2.0.4",
+        "parcel-bundler": "^1.12.4",
         "prettier": "^2.0.5",
         "pretty-quick": "^2.0.1",
         "ts-node": "^8.10.2",

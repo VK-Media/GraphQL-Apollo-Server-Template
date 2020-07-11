@@ -9,9 +9,7 @@ const resolversArray = loadFilesSync(
 const resolvers = mergeResolvers(resolversArray)
 
 // Combine all typeDefs into one typeDef string
-const typeDefsArray = loadFilesSync(
-    path.join(__dirname, './**/*.typedefs.graphql')
-)
+const typeDefsArray = loadFilesSync(path.join(__dirname, './**/*.typedefs.gql'))
 const typeDefs = mergeTypeDefs(typeDefsArray)
 
 export { resolvers, typeDefs }
