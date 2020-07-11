@@ -1,5 +1,4 @@
 import UserController from '../../controllers/User.controller'
-import { getUserIdFromToken } from '../../utils/user.utils'
 
 export default {
     Query: {

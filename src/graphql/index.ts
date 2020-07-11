@@ -1,15 +1,12 @@
 import { mergeResolvers, mergeTypeDefs } from '@graphql-tools/merge'
-import { loadFilesSync } from '@graphql-tools/load-files'
-import * as path from 'path'
+
+import userResolvers from './user/user.resolvers'
+import userTypeDefs from './user/user.typedefs'
 
 // Combine all resolvers into one resolver object
-const resolversArray = loadFilesSync(
-    path.join(__dirname, './**/*.resolvers.ts')
-)
-const resolvers = mergeResolvers(resolversArray)
+const resolvers = mergeResolvers([userResolvers])
 
 // Combine all typeDefs into one typeDef string
-const typeDefsArray = loadFilesSync(path.join(__dirname, './**/*.typedefs.gql'))
-const typeDefs = mergeTypeDefs(typeDefsArray)
+const typeDefs = mergeTypeDefs([userTypeDefs])
 
 export { resolvers, typeDefs }

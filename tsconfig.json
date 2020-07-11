@@ -9,7 +9,6 @@
         "experimentalDecorators": true,
         "esModuleInterop": true
     },
-    "files": ["src/@types/graphql.d.ts"],
     "include": ["**/*.ts"],
     "exclude": ["node_modules", "**/*.test.ts"]
 }
