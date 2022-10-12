@@ -9,7 +9,7 @@
     },
     "dependencies": {
         "@graphql-tools/merge": "^6.0.12",
-        "apollo-server": "^2.9.6",
+        "apollo-server": "^2.25.4",
         "bcryptjs": "^2.4.3",
         "dotenv": "^8.2.0",
         "graphql": "^15.3.0",
